@@ -48,10 +48,25 @@ set hidden
 " Initiate NERDTree with VIM
 autocmd VimEnter * NERDTree
 
+" set keybinds for changing between vim windows
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+
+" set keybinds to resize windows
+
+au! WinEnter * call SetWinAdjust()
+
+fun! SetWinAdjust()
+   if winnr() == winnr('$')
+      nmap <C-w>> :vertical resize -5<CR>
+      nmap <C-w>< :vertical resize +5<CR>
+   else
+      nmap <C-w>> :vertical resize +5<CR>
+      nmap <C-w>< :vertical resize -5<CR>
+   endif
+endfun
 
 "set cursorline
 "hi CursorLine   cterm=NONE ctermbg=237;
