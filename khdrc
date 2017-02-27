@@ -94,8 +94,8 @@ cmd + shift - h         :    kwmc window -m west
 ctrl + shift - x         :    kwmc window -m mark
 
 # Move Focused Window To Space
-ctrl + alt - left        :    kwmc window -m space left
-ctrl + alt - right       :    kwmc window -m space right
+cmd + alt - h        :    kwmc window -m space left
+cmd + alt - l       :    kwmc window -m space right
 
 # Move Focused Window To Screen
 ctrl + alt - 1           :    kwmc window -m display 0
