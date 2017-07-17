@@ -1,6 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/miguel/.oh-my-zsh
 
@@ -105,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
  alias zshconfig="nvim ~/.zshrc"
  alias ohmyzsh="nvim ~/.oh-my-zsh"
+ alias kwmreboot="brew services restart kwm"
 #
 bindkey -v
 
@@ -124,3 +130,8 @@ EOF
 
 # VERY IMPORTANT
 alias vim="nvim"
+alias sudo vim ="sudo nvim"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+

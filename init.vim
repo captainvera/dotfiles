@@ -60,11 +60,11 @@ au! WinEnter * call SetWinAdjust()
 
 fun! SetWinAdjust()
    if winnr() == winnr('$')
-      nmap <C-w>> :vertical resize -5<CR>
-      nmap <C-w>< :vertical resize +5<CR>
+      nmap <C-w>> :vertical resize -25<CR>
+      nmap <C-w>< :vertical resize +25<CR>
    else
-      nmap <C-w>> :vertical resize +5<CR>
-      nmap <C-w>< :vertical resize -5<CR>
+      nmap <C-w>> :vertical resize +25<CR>
+      nmap <C-w>< :vertical resize -25<CR>
    endif
 endfun
 
@@ -86,6 +86,8 @@ endfor
 " Hide NERDTree scrollbar
 :set guioptions-=L
 
+nmap <C-n> :NERDTreeToggle <CR>
+
 " Hide MacVim scrollbar
 :set guioptions-=r 
 
@@ -96,6 +98,9 @@ set nocursorcolumn      " Don't paint cursor column
 set lazyredraw          " Wait to redraw
 set scrolljump=8        " Scroll 8 lines at a time at bottom/top
 let html_no_rendering=1 " Don't render italic, bold, links in HTML
+
+" Hopefully make clipboard work with Vim
+set clipboard=unnamed
 
 " Fix <C-h> keybind on neovim
 if has('nvim')
