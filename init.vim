@@ -13,10 +13,22 @@
 "
 "  If you don't understand a setting in here, just type ':h setting'.
 
+" auto-install vim-plug                                                                                                                
+if empty(glob('~/.config/nvim/autoload/plug.vim'))                                                                                    
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim                                                              autocmd VimEnter * PlugInstall                                                                                                      
+endif                                                                                                                                 
+
+call plug#begin('~/.config/nvim/plugged')
+
+" Install plugins
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'fatih/vim-go'
+Plug 'hzchirs/vim-material'
+
+call plug#end()
+
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
-
-execute pathogen#infect()
 set nocompatible
 
 " Make backspace behave in a sane manner.
@@ -24,6 +36,9 @@ set backspace=indent,eol,start
 
 " Switch syntax highlighting on
 syntax on
+
+" Ativate true colors in iterm2
+set termguicolors
 
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
@@ -39,14 +54,16 @@ set relativenumber
 " Allow hidden buffers, don't limit to 1 file per window/split
 set hidden
 
-" Collor Scheme specific
-"colorscheme two-firewatch
+" Color Scheme specific
+colorscheme vim-material
 
-"set background=dark
-"let g:two_firewatch_italics=1
+set background=dark
 
 " Initiate NERDTree with VIM
 autocmd VimEnter * NERDTree
+
+" Close Vim if only window open is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " set keybinds for changing between vim windows
 noremap <C-h> <C-w>h

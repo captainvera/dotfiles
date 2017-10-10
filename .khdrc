@@ -1,0 +1,93 @@
+# Reload config 
+cmd + alt + ctrl - r : khd -e "reload"
+
+# Enable the prefix mode
+#khd mode prefix prefix on
+#khd mode prefix timeout 0.75
+#khd mode prefix restore default
+#khd mode prefix color 0xFF458588
+
+# Activate prefix mode
+#ctrl - s                 :    khd -e "mode activate prefix"
+
+# Launch iTerm2
+cmd - return             :    open -na /Applications/iTerm.app
+
+# Set Space Tiling Mode To BSP
+cmd + ctrl - a           :    chunkc space -t bsp
+
+# Set Space Tiling Mode To Monocle
+cmd + ctrl - s           :    chunkc space -t monocle
+
+# Set Space Tiling Mode To Floating
+cmd + ctrl - d           :    chunkc space -t float
+
+# Rotate Window-Tree By 90degrees (Clockwise)
+cmd + ctrl - r           :    chunkc tree rotate 90
+
+# Modify Container
+prefix - s               :    chunkc window -c split-mode toggle
+prefix - 0x32            :    chunkc window -c type toggle
+
+prefix - h               :    chunkc window -c expand 0.05 west
+prefix - j               :    chunkc window -c expand 0.05 south
+prefix - k               :    chunkc window -c expand 0.05 north
+prefix - l               :    chunkc window -c expand 0.05 east
+
+prefix + shift - h       :    chunkc window -c reduce 0.05 west
+prefix + shift - j       :    chunkc window -c reduce 0.05 south
+prefix + shift - k       :    chunkc window -c reduce 0.05 north
+prefix + shift - l       :    chunkc window -c reduce 0.05 east
+
+# Set Temporary Window Container
+prefix - f               :    chunkc window -z fullscreen
+prefix - d               :    chunkc window -z parent
+prefix - w               :    chunkc window -t focused
+
+# Give Focus To Window
+cmd - h            :    chunkc tiling::window --focus west
+cmd - l            :    chunkc tiling::window --focus east
+cmd - j            :    chunkc tiling::window --focus south
+cmd - k            :    chunkc tiling::window --focus north
+
+# Swap windows
+cmd + shift - k         :    chunkc tiling::window --swap north
+cmd + shift - l         :    chunkc tiling::window --swap east
+cmd + shift - j         :    chunkc tiling::window --swap south
+cmd + shift - h         :    chunkc tiling::window --swap west
+
+# Move Focused Window To Space
+cmd + shift + alt - h        :    chunkc tiling::window -d prev
+cmd + shift + alt - l        :    chunkc tiling::window -d next
+
+# Move focused window to space and follow focus
+cmd + alt - h           : chunkc tiling::window -d prev; khd -p "cmd + alt - z"
+cmd + alt - l           : chunkc tiling::window -d next; khd -p "cmd + alt - c"
+
+# Switch desktops
+# DEFINE ME IN MAC OS PREFERENCES -> Keyboard -> Mission Control
+# Use cmd + alt - z for left
+# cmd + alt - c for right
+
+# Increase Container Gaps
+prefix - x               :    chunkc space -g increase horizontal
+prefix - y               :    chunkc space -g increase vertical
+
+# Decrease Container Gaps
+prefix + shift - x       :    chunkc space -g decrease horizontal
+prefix + shift - y       :    chunkc space -g decrease vertical
+
+# Increase Screen Padding
+prefix - left            :    chunkc space -p increase left
+prefix - right           :    chunkc space -p increase right
+prefix - up              :    chunkc space -p increase top
+prefix - down            :    chunkc space -p increase bottom
+prefix - p               :    chunkc space -p increase all
+
+# Decrease Screen Padding
+prefix + shift - left    :    chunkc space -p decrease left
+prefix + shift - right   :    chunkc space -p decrease right
+prefix + shift - up      :    chunkc space -p decrease top
+prefix + shift - down    :    chunkc space -p decrease bottom
+prefix + shift - p       :    chunkc space -p decrease all
+

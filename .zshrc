@@ -2,12 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/miguel/.oh-my-zsh
+export ZSH=/Users/flame/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -78,7 +77,7 @@ ZSH_THEME="cypher"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew extract osx)
+plugins=(git brew extract osx zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,28 +109,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
  alias zshconfig="nvim ~/.zshrc"
  alias ohmyzsh="nvim ~/.oh-my-zsh"
- alias kwmreboot="brew services restart kwm"
 #
 bindkey -v
 
-function firefox-window() {
-/usr/bin/env osascript <<-EOF
-tell application "System Events"
-    if (name of processes) contains "Firefox" then
-        tell application "Firefox" to activate
-        keystroke "n" using command down
-    else
-        tell application "Firefox" to activate
-    end if
-end tell
-EOF
-}
-
-
 # VERY IMPORTANT
+alias sudo='sudo '
 alias vim="nvim"
-alias sudo vim ="sudo nvim"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 

@@ -10,4 +10,3 @@ alias .6='cd ../../../../../../'
 alias c='clear'
 spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 PS1="\[\e[32m\]\u\[\e[m\]\\$\[\e[31m\]\h\[\e[m\][\[\e[33m\]\w\[\e[m\]] ~ "
-vim="/Users/user/Applications/MacVim.app/Contents/MacOS/Vim"
