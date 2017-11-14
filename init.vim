@@ -24,6 +24,9 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'fatih/vim-go'
 Plug 'hzchirs/vim-material'
+Plug 'Valloric/YouCompleteMe'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
