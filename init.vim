@@ -23,10 +23,11 @@ call plug#begin('~/.config/nvim/plugged')
 " Install plugins
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'fatih/vim-go'
-Plug 'hzchirs/vim-material'
+Plug 'rakr/vim-one'
 Plug 'Valloric/YouCompleteMe'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
+Plug 'nvie/vim-flake8'
 
 call plug#end()
 
@@ -50,20 +51,17 @@ filetype plugin indent on
 set number
 set relativenumber
 
-:set tabstop=4
-:set shiftwidth=4
+:set tabstop=2
+:set shiftwidth=2
 :set expandtab
 
 " Allow hidden buffers, don't limit to 1 file per window/split
 set hidden
 
 " Color Scheme specific
-colorscheme vim-material
+colorscheme one
 
 set background=dark
-
-" Initiate NERDTree with VIM
-autocmd VimEnter * NERDTree
 
 " Close Vim if only window open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -116,11 +114,17 @@ set noshowmatch         " Don't match parentheses/brackets
 set nocursorline        " Don't paint cursor line
 set nocursorcolumn      " Don't paint cursor column
 set lazyredraw          " Wait to redraw
-set scrolljump=8        " Scroll 8 lines at a time at bottom/top
+" set scrolljump=8        " Scroll 8 lines at a time at bottom/top
 let html_no_rendering=1 " Don't render italic, bold, links in HTML
 
 " Hopefully make clipboard work with Vim
 set clipboard=unnamed
+
+" Cursor scroling
+set mouse=a
+if has("mouse_sgr")
+    set ttymouse=sgr
+end
 
 " Fix <C-h> keybind on neovim
 if has('nvim')
